@@ -3,12 +3,6 @@ title: DATE-API
 version: v1
 baseUri: http://localhost:8081
 types:
-  Date:
-    properties:
-      day_week: number
-      day_month: number
-      month: number
-      year: number
   Foramted_Date:
     properties:
       date: string
@@ -16,10 +10,11 @@ types:
 /date:
   get:
     description: Transform Date
-    body:
-      application/json:
-        type: Date
-        example: { "day_week" : 2, "day_month" : 12, "month": 3 , "year": 2019}
+    queryParameters:
+      day_week: number
+      day_month: number
+      month: number
+      year: number
     responses:
         200:
           body:
