@@ -1,0 +1,28 @@
+#%RAML 1.0
+title: DATE-API
+version: v1
+baseUri: http://localhost:8081
+types:
+  Date:
+    properties:
+      day_week: number
+      day_month: number
+      month: number
+      year: number
+  Foramted_Date:
+    properties:
+      date: string
+
+/date:
+  get:
+    description: Transform Date
+    body:
+      application/json:
+        type: Date
+        example: { "day_week" : 2, "day_month" : 12, "month": 3 , "year": 2019}
+    responses:
+        200:
+          body:
+            application/json:
+              type: Foramted_Date
+              example: { "date": "Monday, March 12, 2019" }
